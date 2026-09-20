@@ -1,8 +1,7 @@
-# syscall-lab - Sistemas de Computacao
-# Compila cada .c das pastas numeradas em um binario dentro de bin/<pasta>/
+
 
 CC       := gcc
-CFLAGS   := -std=c17 -Wall -Wextra -g
+CFLAGS   := -std=c17 -Wall -Wextra -g -pthread
 SANFLAGS := -fsanitize=address,undefined
 LDLIBS   := -lm -lpthread
 
@@ -15,7 +14,7 @@ BIN := bin
 
 all: $(DIRS)
 
-# make 02-processes  -> compila so aquela pasta
+
 $(DIRS):
 	@mkdir -p $(BIN)/$@
 	@for src in $@/*.c; do \
@@ -25,7 +24,6 @@ $(DIRS):
 		$(CC) $(CFLAGS) $(EXTRA) "$$src" -o "$$out" $(LDLIBS) || exit 1; \
 	done
 
-# mesma build, mas com AddressSanitizer + UBSan ligados
 san:
 	@$(MAKE) --no-print-directory all EXTRA="$(SANFLAGS)"
 

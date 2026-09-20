@@ -13,3 +13,10 @@ syscall-lab/
 ├── Makefile               # alvos por pasta, -Wall -Wextra -g -fsanitize
 └── README.md
 ```
+
+## Atividade II — Simpsons
+
+O problema do produtor e consumidor está implementado em
+[`05-threads/simpson.c`](05-threads/simpson.c), em C com POSIX threads, com instruções de execução
+e entrega no [README da atividade](05-threads/README.md).
+A cópia para entregar ao professor é `05-threads/simpson.txt`.
